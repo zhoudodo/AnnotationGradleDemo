@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'buildSrcPlugin'
+
+apply plugin: 'com.zls.java2dart'
+
+
+
+user{
+    name "Json"
+    age "30"
+    man "true"
+}
+
+//baby{
+//    name "Baby"
+//    age "3"
+//    man "true"
+//}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+    defaultConfig {
+        applicationId "com.gangyi.myapplication"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+
+    implementation 'com.contrarywind:Android-PickerView:4.1.6'
+
+    annotationProcessor project(':java2dart_library_compiler')  //注解处理库
+    implementation project(':java2dart_library_annotation')  //注解库
+
+}

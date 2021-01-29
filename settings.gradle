@@ -1,0 +1,1 @@
+include ':app', ':buildSrc', ':Java2Dart', ':java2dart_library_compiler', ':java2dart_library_annotation'
